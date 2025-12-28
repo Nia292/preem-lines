@@ -3,9 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "preem-lines",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "dev": "vite --base /preem-lines/",
+    "build": "tsc -b && vite build --base /preem-lines/",
     "lint": "eslint .",
     "preview": "vite preview"
   },
