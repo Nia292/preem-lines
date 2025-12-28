@@ -1,0 +1,15 @@
+.button {
+    color: var(--color-primary);
+    cursor: pointer;
+    border: 2px solid var(--color-primary);
+}
+
+.button-regular {
+    font-size: var(--text-size);
+    padding: 8px;
+}
+
+.button-small {
+    font-size: var(--text-size-small);
+    padding: 4px;
+}

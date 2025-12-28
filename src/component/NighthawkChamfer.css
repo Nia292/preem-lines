@@ -1,0 +1,58 @@
+.chamfer-parent {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 450px;
+
+    /* Chamfer variables */
+    --padding: 16px;
+    --border-width: 1px;
+    --border-color: #ffd33a;
+}
+
+.chamfer-content {
+    border: var(--border-width) solid var(--border-color);
+    padding: var(--padding); /* but can be separate */
+    z-index: 10;
+
+    /* Chamfer replaces bottom border, so */
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.chamfer {
+    position: relative;
+
+    width: 100%;
+    height: var(--padding);
+}
+
+.chamfer-padding {
+    height: 100%;
+    width: calc(100% - var(--padding));
+
+    border-width: 0;
+    border-style: solid;
+    border-color: var(--border-color);
+    border-left-width: var(--border-width);
+    border-bottom-width: var(--border-width);
+}
+
+.chamfer-bevel {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    width: calc(var(--padding) * 1.4142);
+    height: auto;
+    aspect-ratio: 1 / 1;
+
+    border-width: 0;
+    border-style: solid;
+    border-color: var(--border-color);
+    border-bottom-width: var(--border-width);
+
+    transform-origin: bottom left;
+    transform: translateX(calc(var(--padding) * 0.4142)) rotate(-45deg);
+}
