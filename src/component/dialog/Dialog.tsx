@@ -15,11 +15,11 @@ const startOptions: Option[] = [
 ]
 
 function DialogName() {
-    return <div className="dialog-name rajdhani-semibold" contentEditable>Wakako Okada</div>
+    return <div className="dialog-name cp2077-text" contentEditable>Wakako Okada</div>
 }
 
 function SquareIcon(props: {content: string}) {
-    return <div className="square-icon rajdhani-semibold">
+    return <div className="square-icon cp2077-text">
         <span>{props.content}</span>
     </div>
 }

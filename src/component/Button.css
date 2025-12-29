@@ -6,7 +6,7 @@
 
 .button-regular {
     font-size: var(--text-size);
-    padding: 8px;
+    padding: var(--button-padding);
 }
 
 .button-small {

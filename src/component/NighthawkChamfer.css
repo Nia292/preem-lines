@@ -27,20 +27,20 @@
 
 .chamfer {
     position: relative;
-    width: var(--chamfer--padding);
+    width: var(--chamfer-padding);
     height: 100%;
 }
 
 .chamfer-padding {
-    height: calc(100% - var(--chamfer--padding));
-    width: var(--chamfer--padding);
+    height: calc(100% - var(--chamfer-padding));
+    width: var(--chamfer-padding);
 
     background-color: var(--chamfer-color);
 }
 
 .chamfer-bevel {
     position: absolute;
-    width: calc(var(--chamfer--padding) * 1.4142);
+    width: calc(var(--chamfer-padding) * 1.4142);
     height: auto;
     aspect-ratio: 1 / 1;
     background-color: var(--chamfer-color);
@@ -50,12 +50,12 @@
     right: 0;
     bottom: 0;
     transform-origin: bottom left;
-    transform: translateX(calc(var(--chamfer--padding) * 0.4142)) rotate(-45deg);
+    transform: translateX(calc(var(--chamfer-padding) * 0.4142)) rotate(-45deg);
 }
 
 .chamfer-left .chamfer-bevel {
     left: 0;
     bottom: 0;
     transform-origin: bottom right;
-    transform: translateX(calc(var(--chamfer--padding) * 0.4142)) rotate(-45deg);
+    transform: translateX(calc(var(--chamfer-padding) * 0.4142)) rotate(-45deg);
 }

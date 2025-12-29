@@ -6,7 +6,7 @@ export function Button(props: { printing: boolean, label: string, click: FnActio
         return <></>
     }
     if (props.small) {
-        return <div className="button button-small rajdhani-bold noselect" onClick={props.click}>{props.label}</div>
+        return <div className="button button-small cp2077-text noselect" onClick={props.click}>{props.label}</div>
     }
-    return <div className="button button-regular rajdhani-bold noselect" onClick={props.click}>{props.label}</div>
+    return <div className="button button-regular cp2077-text noselect" onClick={props.click}>{props.label}</div>
 }

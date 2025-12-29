@@ -42,11 +42,11 @@ export function DialogOption(props: DialogOptionProps) {
     const toggleSelected = () => setSelected(!selected);
 
     const extraClass = `dialog-option-${primary ? 'primary' : 'secondary'}`;
-    const classes = `dialog-option rajdhani-semibold ${extraClass}`;
+    const classes = `dialog-option cp2077-text ${extraClass}`;
     if (selected) {
         return  <div style={{height: "100%", display: "flex", flexDirection: "row"}}>
             <NighthawkChamfer align="right" color={primary ? "var(--color-accent)": "var(--color-alternative)"}>
-                <span contentEditable className="dialog-option-text rajdhani-semibold">{props.initialText}</span>
+                <span contentEditable className="dialog-option-text cp2077-text">{props.initialText}</span>
             </NighthawkChamfer>
             <EditOptions printing={props.printing}
                          add={props.addNew}

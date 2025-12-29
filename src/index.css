@@ -8,41 +8,36 @@ html {
   --color-uncommon: #18ed81;
   --color-limited: #00edc9;
 
-  --text-size: 32px;
-  --text-size-small: 16px;
 
   /* Used for the edge-chamfer component */
-  --chamfer--padding: 16px;
+  --dialog-option-padding: 2px 16px 2px 8px;
+  --dialog-name-padding: 2px 8px 2px 16px;
+  --button-padding: 4px;
 }
 
-.rajdhani-light {
-  font-family: "Rajdhani", sans-serif;
-  font-weight: 300;
-  font-style: normal;
+@media only screen and (min-width: 1920px) {
+  html {
+    --text-size: 24px;
+    --text-size-small: 12px;
+    --chamfer-padding: 12px;
+    --square-icon-size: 32px;
+  }
 }
 
-.rajdhani-regular {
-  font-family: "Rajdhani", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+@media only screen and (min-width: 2560px) {
+  html {
+    --text-size: 32px;
+    --text-size-small: 16px;
+    --chamfer-padding: 16px;
+    --square-icon-size: 41px;
+  }
 }
 
-.rajdhani-medium {
+.cp2077-text {
   font-family: "Rajdhani", sans-serif;
-  font-weight: 500;
+  font-weight: 450;
   font-style: normal;
-}
-
-.rajdhani-semibold {
-  font-family: "Rajdhani", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.rajdhani-bold {
-  font-family: "Rajdhani", sans-serif;
-  font-weight: 700;
-  font-style: normal;
+  color: #1e1e1e;
 }
 
 html {
