@@ -2,13 +2,25 @@ import {Button} from "../Button.tsx";
 import { Popover } from 'react-tiny-popover'
 import {useState} from "react";
 import type {FnAction} from "../../types.ts";
+import {NighthawkChamfer} from "../NighthawkChamfer.tsx";
 
-function EditOptions(props: {togglePrimary: FnAction, toggleSelected: FnAction, add: FnAction, remove: FnAction}) {
-    return <div style={{backgroundColor: "rgba(0, 0, 0, 0.8)", display: "flex", flexDirection: "row"}}>
+function EditOptions(props: {printing: boolean, open: boolean, togglePrimary: FnAction, toggleSelected: FnAction, add: FnAction, remove: FnAction, toggleOpen: FnAction}) {
+    if (props.printing) {
+        return <></>
+    }
+    const content = <div style={{backgroundColor: "rgba(0, 0, 0, 0.8)", display: "flex", flexDirection: "row"}}>
         <Button label="Remove" small printing={false} click={props.remove}></Button>
         <Button label="Add New" small printing={false} click={props.add}></Button>
         <Button label="Toggle Primary" small printing={false} click={props.togglePrimary}></Button>
         <Button label="Toggle Selected" small printing={false} click={props.toggleSelected}></Button>
+    </div>
+
+    return <div style={{marginLeft: "8px"}}>
+        <Popover isOpen={props.open} content={content} positions="right" padding={10}>
+            <div style={{backgroundColor: "black"}}>
+                <Button printing={props.printing} small label="Edit" click={props.toggleOpen}></Button>
+            </div>
+        </Popover>
     </div>
 }
 
@@ -29,21 +41,35 @@ export function DialogOption(props: DialogOptionProps) {
     const togglePrimary = () => setPrimary(!primary);
     const toggleSelected = () => setSelected(!selected);
 
-    const extraClass = `dialog-option-${primary ? 'primary' : 'secondary'}${selected ? '-selected' : ''}`;
+    const extraClass = `dialog-option-${primary ? 'primary' : 'secondary'}`;
     const classes = `dialog-option rajdhani-semibold ${extraClass}`;
-    return <div style={{display: "flex", flexDirection: "row"}}>
-        <div className={classes} contentEditable>
-            {props.initialText}
+    if (selected) {
+        return  <div style={{height: "100%", display: "flex", flexDirection: "row"}}>
+            <NighthawkChamfer align="right" color={primary ? "var(--color-accent)": "var(--color-alternative)"}>
+                <span contentEditable className="dialog-option-text rajdhani-semibold">{props.initialText}</span>
+            </NighthawkChamfer>
+            <EditOptions printing={props.printing}
+                         add={props.addNew}
+                         remove={props.remove}
+                         togglePrimary={togglePrimary}
+                         toggleSelected={toggleSelected}
+                         open={isPopoverOpen}
+                         toggleOpen={() => setIsPopoverOpen(!isPopoverOpen)}>
+            </EditOptions>
         </div>
-        {!props.printing && <div style={{marginLeft: "8px"}}>
-            <Popover isOpen={isPopoverOpen} content={<EditOptions togglePrimary={togglePrimary}
-                                                                  remove={props.remove}
-                                                                  add={props.addNew}
-                                                                  toggleSelected={toggleSelected}></EditOptions>} positions="right" padding={10}>
-                <div style={{backgroundColor: "black"}}>
-                    <Button printing={props.printing} small label="Edit" click={() => setIsPopoverOpen(!isPopoverOpen)}></Button>
-                </div>
-            </Popover>
-        </div>}
+
+    }
+    return <div style={{display: "flex", flexDirection: "row"}}>
+        <div className={classes}>
+            <span contentEditable className="dialog-option-text">{props.initialText}</span>
+        </div>
+        <EditOptions printing={props.printing}
+                     add={props.addNew}
+                     remove={props.remove}
+                     togglePrimary={togglePrimary}
+                     toggleSelected={toggleSelected}
+                     open={isPopoverOpen}
+                     toggleOpen={() => setIsPopoverOpen(!isPopoverOpen)}>
+        </EditOptions>
     </div>
 }

@@ -51,7 +51,7 @@ export function Dialog(props: {printing: boolean}) {
         </div>
         <div className="dialog-option-container-options">
             {
-                options.map((value, index) => <div key={value.text}>
+                options.map((value, index) => <div key={value.text} style={{marginBottom: "4px"}}>
                         <DialogOption initialText={value.text}
                                       initialPrimary={value.primary}
                                       initialSelected={value.selected}

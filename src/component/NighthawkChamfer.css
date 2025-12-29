@@ -1,58 +1,61 @@
+.chamfer-left .chamfer-parent  {
+    flex-direction: row-reverse;
+}
+
+.chamfer-right .chamfer-parent  {
+    flex-direction: row;
+}
+
 .chamfer-parent {
     display: flex;
-    flex-direction: column;
+    position: relative;
 
-    width: 100%;
-    max-width: 450px;
-
-    /* Chamfer variables */
-    --padding: 16px;
-    --border-width: 1px;
-    --border-color: #ffd33a;
+    height: 100%;
+    /** Bright pink! This is set by the react component later */
+    --chamfer-color: #fd0096
 }
 
 .chamfer-content {
-    border: var(--border-width) solid var(--border-color);
-    padding: var(--padding); /* but can be separate */
-    z-index: 10;
+    background-color: var(--chamfer-color);
 
-    /* Chamfer replaces bottom border, so */
-    padding-bottom: 0;
-    border-bottom: 0;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 8px;
+    padding-right: 16px;
+    z-index: 10;
 }
 
 .chamfer {
     position: relative;
-
-    width: 100%;
-    height: var(--padding);
+    width: var(--chamfer--padding);
+    height: 100%;
 }
 
 .chamfer-padding {
-    height: 100%;
-    width: calc(100% - var(--padding));
+    height: calc(100% - var(--chamfer--padding));
+    width: var(--chamfer--padding);
 
-    border-width: 0;
-    border-style: solid;
-    border-color: var(--border-color);
-    border-left-width: var(--border-width);
-    border-bottom-width: var(--border-width);
+    background-color: var(--chamfer-color);
 }
 
 .chamfer-bevel {
     position: absolute;
-    right: 0;
-    bottom: 0;
-
-    width: calc(var(--padding) * 1.4142);
+    width: calc(var(--chamfer--padding) * 1.4142);
     height: auto;
     aspect-ratio: 1 / 1;
+    background-color: var(--chamfer-color);
+}
 
-    border-width: 0;
-    border-style: solid;
-    border-color: var(--border-color);
-    border-bottom-width: var(--border-width);
-
+.chamfer-right .chamfer-bevel  {
+    right: 0;
+    bottom: 0;
     transform-origin: bottom left;
-    transform: translateX(calc(var(--padding) * 0.4142)) rotate(-45deg);
+    transform: translateX(calc(var(--chamfer--padding) * 0.4142)) rotate(-45deg);
+}
+
+.chamfer-left .chamfer-bevel {
+    left: 0;
+    bottom: 0;
+    transform-origin: bottom right;
+    transform: translateX(calc(var(--chamfer--padding) * 0.4142)) rotate(-45deg);
 }

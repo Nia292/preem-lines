@@ -10,6 +10,9 @@ html {
 
   --text-size: 32px;
   --text-size-small: 16px;
+
+  /* Used for the edge-chamfer component */
+  --chamfer--padding: 16px;
 }
 
 .rajdhani-light {
@@ -58,7 +61,7 @@ body {
 
 .bg-image-static {
   background: url("assets/wakako.jpeg") #000 no-repeat;
-  background-size: contain;
+  background-size: cover;
 }
 
 .bg-image-transparent {

@@ -17,6 +17,10 @@ function Background(props: {printing: boolean, children: React.ReactNode}) {
     </div>
 }
 
+function timeout(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function App() {
     const [printing, setPrinting] = useState(false);
     const [printPreview, setPrintPreview] = useState(false);
@@ -24,6 +28,8 @@ function App() {
 
     async function exportImage() {
         setPrinting(true);
+        // Need to wait at least one full rendering cycle so the print button disappears
+        await timeout(100)
         const canvas = await html2canvas(document.querySelector("#capture") as HTMLElement, {backgroundColor: null});
         const image = canvas.toDataURL("image/png");
         const aDownloadLink = document.createElement('a');
