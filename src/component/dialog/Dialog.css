@@ -45,13 +45,13 @@
 .dialog-option-primary {
     color: var(--color-accent);
     border-left: 1px solid var(--color-accent);
-    text-shadow: 1px 1px 2px black;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);;
 }
 
 .dialog-option-secondary {
     color: var(--color-alternative);
     border-left: 1px solid var(--color-alternative);
-    text-shadow: 1px 1px 2px black;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .square-icon {
@@ -61,6 +61,6 @@
     font-size: var(--text-size);
     color: var(--color-alternative);
     border: 2px solid  var(--color-alternative);
-    box-shadow: 1px 1px 1px 1px black;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.8);
     border-radius: 4px;
 }

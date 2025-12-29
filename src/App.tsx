@@ -44,6 +44,26 @@ function App() {
 
     return (
         <div id="capture">
+            <div id="usage" className="cp2077-text">
+                <ol>
+                    <li>
+                        Edit the content as needed
+                        <ol>
+                            <li>All text can be edited inline by clicking on the preset text</li>
+                            <li>Press edit on the dialog options to add/remove/toggle options</li>
+                            <li>Hover over Print to preview rendered result</li>
+                        </ol>
+                    </li>
+                    <li>When ready, press F11 to enter full screen, then hit print</li>
+                    <li>
+                        A download will start, use the result as overlay for your screenshot
+                        <ul>
+                            <li>Rendering happens at your display resolution</li>
+                            <li>Currently supported are 1080p and 1440p</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
             <Background printing={isPrinting}>
                 <Dialog printing={isPrinting}/>
                 <Speech/>
